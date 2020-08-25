@@ -55,12 +55,14 @@ moving inside a database:
 postgres=# \c testdb
 ```
 ![moving into db](./moving_into_db.jpeg)
+63
+postgres=# \da
 
 listing tables and sequences:
 ```
 postgres=# \d
 postgres=# \dt
-postgres=# \da
+postgres=# \ds
 ```
 
 after u enter into a db
