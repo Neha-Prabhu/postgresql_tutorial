@@ -49,6 +49,7 @@ moving inside a database:
 ```
 postgres=# \c testdb
 ```
+![moving into db](./moving_into_db.jpeg)
 
 after u enter into a db
 ```
