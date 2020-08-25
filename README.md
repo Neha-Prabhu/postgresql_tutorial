@@ -56,6 +56,12 @@ postgres=# \c testdb
 ```
 ![moving into db](./moving_into_db.jpeg)
 
+listing tables and sequences:
+```
+postgres=# \d
+postgres=# \dt
+postgres=# \da
+```
 
 after u enter into a db
 you can start executing commands:
