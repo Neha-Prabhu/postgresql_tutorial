@@ -39,6 +39,11 @@ $ psql <dbname>
 ```
 default db is postgres.
 
+Use the following command to list databases:
+```
+$ psql -l
+```
+
 Creating a database and user roles:
 
 creating a db:
@@ -51,11 +56,44 @@ postgres=# \c testdb
 ```
 ![moving into db](./moving_into_db.jpeg)
 
+
 after u enter into a db
+you can start executing commands:
 ```
 testdb=# alter user postgres with password 'my00pass';
 ```
-Use the following command to list databases:
+creating a user:
 ```
-$ psql -l
+postgres=# create user john with encrypted password 'mypass';
 ```
+giving a user privileges:
+```
+testdb=# grant all privileges on database testdb to john;
+```
+
+creating a db:(syntax)
+```
+CREATE TABLE new_table_name (
+	table_column_title TYPE_OF_DATA column_constraints,
+	next_column_title TYPE_OF_DATA column_constraints,
+	table_constraint
+	table_constraint
+) INHERITS existing_table_to_inherit_from;
+```
+
+Column definitions follow this syntax pattern:
+```
+column_name data_type (optional_data_length_restriction) column_constraints
+```
+The column name should be self-explanatory.
+Example:
+```
+CREATE TABLE pg_equipment (
+	equip_id serial PRIMARY KEY,
+	type varchar (50) NOT NULL,
+	color varchar (25) NOT NULL,
+	location varchar(25) check (location in ('north', 'south', 'west', 'east', 'northeast', 'southeast', 'southwest', 'northwest')),
+	install_date date
+	);
+  ```
+  for more details on DDL commands in postgresql  [click here](https://www.digitalocean.com/community/tutorials/how-to-create-remove-manage-tables-in-postgresql-on-a-cloud-server)
